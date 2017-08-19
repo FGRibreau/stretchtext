@@ -25,7 +25,7 @@ See it in action (french articles):
 
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam<p data-stretchtext="(bonus) my life">, quis nostrud exercitation,</span> ullamco laboris nisi ut aliquip ex ea commodo consequat.<span data-stretchtext="(bonus) Plop"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
-<script type="text/javascript" src="https://stretchtext.fgribreau.com/dist/stretchtext.js"></script>
+<script type="text/javascript" src="https://stretchtext.fgribreau.com/StretchText.js"></script>
 <script type="text/javascript">
 StretchText({
   // select the article container element
