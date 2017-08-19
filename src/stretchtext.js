@@ -5,7 +5,6 @@ import pluck from 'lodash/fp/pluck';
 import uniq from 'lodash/fp/uniq';
 import map from 'lodash/fp/map';
 import find from 'lodash/fp/find';
-import kebabCase from 'lodash/fp/kebabCase';
 
 import { bind, wire } from 'hyperHTML';
 
