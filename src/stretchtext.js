@@ -5,6 +5,9 @@ import pluck from 'lodash/fp/pluck';
 import uniq from 'lodash/fp/uniq';
 import map from 'lodash/fp/map';
 import find from 'lodash/fp/find';
+import kebabCase from 'lodash/fp/kebabCase';
+
+import { bind, wire } from 'hyperHTML';
 
 function StretchText({ content, menu }) {
   // node -> Array[Part]
@@ -17,25 +20,6 @@ function StretchText({ content, menu }) {
   const Section = name => ({ name: name, isVisible: true });
 
   const extractSections = flow(pluck(0), uniq, map(Section));
-
-  const updateMenu = (container, sections) =>
-    (container.innerHTML = sections
-      .map(
-        section =>
-          `<div>
-              <input type="checkbox" id="stretchtext-${section.name}" ${section.isVisible
-            ? 'checked="checked"'
-            : ''} name="stretchtext-${section.name}" value="${section.name}">
-              <label for="stretchtext-${section.name}">${section.name}</label>
-          </div>
-            `
-      )
-      .join('\n'));
-
-  const attachMenuHandler = (container, handler) =>
-    container
-      .querySelectorAll('input')
-      .forEach(input => (input.onchange = handler));
 
   const displayParts = (parts, section, isVisible) =>
     parts
@@ -65,10 +49,22 @@ function StretchText({ content, menu }) {
   // [{Section}, ...]
   const sections = extractSections(parts);
 
-  const and = (fa, fb) => a => {
-    f(a);
-    fb();
-  };
+  // attach event handles to each menu section (/!\ wrap `parts`)
+  const onStretchTextChange = e =>
+    setSectionVisibility(e.target.checked)(parts)(
+      find({ name: e.target.value }, sections)
+    );
+
+  const updateMenu = (container, sections) =>
+    bind(container)`${sections.map(
+      section =>
+        wire(section)`<div>
+          <input onchange=${onStretchTextChange} checked=${section.isVisible}
+            type=checkbox value=${section.name} id=${'stretchtext-' +
+          section.name} />
+          <label for=${'stretchtext-' + section.name} >${section.name}</label>
+      </div>`
+    )}`;
 
   const hideSection = section => {
     setSectionVisibility(false)(parts)(section);
@@ -81,14 +77,6 @@ function StretchText({ content, menu }) {
 
   // hide all sections (this will also trigger a menu render)
   sections.forEach(hideSection);
-
-  // attach event handles to each menu section
-  const onStretchTextChange = parts => e =>
-    setSectionVisibility(e.target.checked)(parts)(
-      find({ name: e.target.value }, sections)
-    );
-
-  attachMenuHandler(menu, onStretchTextChange(parts));
 
   return {
     hideSection: sectionName =>
