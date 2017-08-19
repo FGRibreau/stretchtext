@@ -1,0 +1,40 @@
+.st {
+  display: inline;
+}
+
+.st_show {
+  color: #333;
+  color: rgb(0, 133, 252);
+  background: transparent;
+}
+
+.st_show:hover,
+.st_show:hover::after {
+  cursor: pointer;
+}
+
+/* stretchtext */
+.stretchtext-menu {
+  text-align: center;
+  background: whitesmoke;
+  font-size: 14px;
+  font-family: sans-serif;
+  padding: 4px;
+  margin: 5px 0px;
+  border-radius: 4px;
+}
+
+.stretchtext-menu-slider {
+  font-weight: bold;
+}
+
+.stretchtext-menu-info {
+  font-size: 12px;
+  text-align: center;
+}
+
+.stretchtext-menu a {
+  font-size: 12px;
+  text-align: center;
+  display: block;
+}
