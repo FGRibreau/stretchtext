@@ -4,18 +4,8 @@ import flow from 'lodash/fp/flow';
 import pluck from 'lodash/fp/pluck';
 import uniq from 'lodash/fp/uniq';
 
-{
-  /* <div class="stretchtext">
-    <div class="stretchtext-menu">
-      <div class="stretchtext-menu-slider">TL;DR <input type="range" value="0" id="depth_selector"> Complet</div>
-      <div class="stretchtext-menu-info">
-        Temps de lecture : <span id="reading_time">0 sec</span>
-      </div>
-    </div> */
-}
-
 function StretchText({ content, menu }) {
-  // node ->
+  // node -> Array[Part]
   const createParts = content =>
     Array.from(content.querySelectorAll('[data-stretchtext]')).map(createPart);
 
