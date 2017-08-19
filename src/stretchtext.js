@@ -6,7 +6,7 @@ import uniq from 'lodash/fp/uniq';
 import map from 'lodash/fp/map';
 import find from 'lodash/fp/find';
 
-import { bind, wire } from 'hyperHTML';
+import { bind, wire } from 'hyperhtml';
 
 function StretchText({ content, menu }) {
   // node -> Array[Part]
