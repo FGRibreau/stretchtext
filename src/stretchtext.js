@@ -41,7 +41,10 @@ function StretchText({ content, menu }) {
         display(isVisible, partContainer)
       );
 
-  const hideSection = parts => section => displayParts(parts, section, false);
+  const toggleSection = isVisible => parts => section =>
+    displayParts(parts, section, isVisible);
+  const hideSection = toggleSection(false);
+  const showSection = toggleSection(true);
 
   const display = (isVisible, element) => {
     element.dataset.stretchtextdisplay =
@@ -64,6 +67,11 @@ function StretchText({ content, menu }) {
 
   // attach event handles to each menu section
   attachMenuHandler(menu, onStretchTextChange(parts));
+
+  return {
+    hideSection: hideSection(parts),
+    showSection: showSection(parts),
+  };
 }
 
 window.StretchText = StretchText;
