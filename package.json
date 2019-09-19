@@ -33,7 +33,7 @@
     "jshint-loader": "^0.8.4",
     "node-libs-browser": "^2.0.0",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.4"
+    "webpack": "^3.12.0"
   },
   "dependencies": {
     "hyperhtml": "^1.1.2",
