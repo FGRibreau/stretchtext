@@ -1,6 +1,8 @@
 StretchText
 ===========
 
+[![Slack](https://img.shields.io/badge/Slack-Join%20our%20tech%20community-17202A?logo=slack)](https://join.slack.com/t/fgribreau/shared_invite/zt-edpjwt2t-Zh39mDUMNQ0QOr9qOj~jrg)
+
 See it in action (french articles):
 
 - [Il décide de réaliser une table démontable en bois de palette en 1 weekend, vous n'imaginerez jamais ce qu'il s'est passé ensuite](http://blog.fgribreau.com/2017/08/il-decide-de-realiser-une-table-a-manger-en-bois-de-palette-en-un-weekend.html)
