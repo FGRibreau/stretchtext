@@ -37,6 +37,6 @@
   },
   "dependencies": {
     "hyperhtml": "^1.1.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.15"
   }
 }
